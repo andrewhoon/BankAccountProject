@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts.cs" />
+    <Compile Include="CheckingAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReserveAccount.cs" />
+    <Compile Include="SavingsAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
