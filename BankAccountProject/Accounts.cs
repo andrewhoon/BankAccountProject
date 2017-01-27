@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace BankAccountProject
 {
@@ -60,10 +61,17 @@ namespace BankAccountProject
 
         public void GenerateClientNumber()
         {
-            Random ran = new Random();
-            this.clientNumber = ran.Next(100000000, 999999999);
+            Random ran1 = new Random();
+            this.clientNumber = ran1.Next(55555555, 99999999);
         }
 
+
+        public virtual void Deposit()
+        {
+            StreamWriter transactions1 = new StreamWriter("Checking.txt", true);
+            transactions1.Write(this.firstName + " " + this.lastName + "   Client Account #" + this.clientNumber + " ");
+            transactions1.Close();
+        }
 
 
 
