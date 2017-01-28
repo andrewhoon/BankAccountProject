@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace BankAccountProject
+namespace BankAccountProject //base class for CheckingAccount, ReserveAccount, and SavingsAccount
 {
     class Accounts
     {
-        protected string firstName;
+        protected string firstName;     //field
         protected string lastName;
         private string userName;
         private string passWord;
         protected int clientNumber;
 
 
-        public string FirstName
+        public string FirstName //properties
         {
             get { return firstName; }
             set { firstName = value; }
@@ -47,7 +47,7 @@ namespace BankAccountProject
         }
 
 
-        public Accounts(string firstName, string lastName, string userName, string passWord, int clientNumber)
+        public Accounts(string firstName, string lastName, string userName, string passWord, int clientNumber)  //constructor
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -56,28 +56,24 @@ namespace BankAccountProject
             this.clientNumber = clientNumber;
         }
 
-        public Accounts()
+        public Accounts()   //we need this constructor empty since we will have the user enter in the info
         { }
 
-        public void GenerateClientNumber()
-        {
+        public void GenerateClientNumber()  //this is used to randomly generate the overall client number
+        {                                   //we will also be randomly generating account numbers for individual accounts
             Random ran1 = new Random();
             this.clientNumber = ran1.Next(55555555, 99999999);
         }
 
 
-        public virtual void Deposit()
+        public virtual void Deposit()   //inherited.  Will always process after deposit made.
         {
-            StreamWriter transactions1 = new StreamWriter("Checking.txt", true);
-            transactions1.Write(this.firstName + " " + this.lastName + "   Client Account #" + this.clientNumber + " ");
-            transactions1.Close();
+            Console.WriteLine(this.firstName +  ", your transaction has been processed.\n");  //extra line used for readability
         }
 
-
-
-
-
-
-
+        public virtual void Withdraw()  //also inherited
+        {
+            Console.WriteLine(this.firstName + ", your transaction has been processed. \n");
+        }
     }
 }
