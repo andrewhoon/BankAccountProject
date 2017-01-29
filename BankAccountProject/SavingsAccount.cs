@@ -58,10 +58,11 @@ namespace BankAccountProject
 
         public override void Deposit() //inherited override method for Deposit
         {
-            
+            Console.Clear();
             Console.WriteLine("How much would you like to deposit into your savings?");
             this.savingsDeposit = double.Parse(Console.ReadLine());
             this.savingsBalance += this.savingsDeposit;
+            Console.Clear();
             Console.WriteLine("Thank you for your deposit of $" + this.savingsDeposit + " into account number " + this.savingsAccountNumber + " at " + DateTime.Now);
             Console.WriteLine("Your new savings account balance is $" + this.savingsBalance + ".");
             StreamWriter transactions1 = new StreamWriter("Savings.txt", true);
@@ -75,9 +76,11 @@ namespace BankAccountProject
 
         public override void Withdraw()     //inherited override method for Withdraw
         {
+            Console.Clear();
             Console.WriteLine("How much would you like to withdraw from your savings?");
             this.savingsWithdrawal = double.Parse(Console.ReadLine());
             this.savingsBalance -= this.savingsWithdrawal;
+            Console.Clear();
             Console.WriteLine("You have withdrawn $" + this.savingsWithdrawal + " from account number " + this.savingsAccountNumber + " at " + DateTime.Now);
             Console.WriteLine("Your new savings account balance is $" + this.savingsBalance + ".");
             StreamWriter transactions1 = new StreamWriter("Savings.txt", true);

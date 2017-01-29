@@ -111,7 +111,8 @@ namespace BankAccountProject
 
             if (selection == 1)  //if/else if for the 4 options
             {
-                Console.WriteLine("\n\nChecking Account Options:");  //spacing for readability
+                Console.Clear();    //console.clear is used to make console more readable
+                Console.WriteLine("Checking Account Options:"); 
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
@@ -128,17 +129,20 @@ namespace BankAccountProject
                 }
                 else if (checkMenu == 3)
                 {
+                    Console.Clear();
                     Console.WriteLine(check1.FirstName + ", your current checking balance is $" + check1.CheckBalance + ".");
                 }
                 else
                 {
+                    Console.Clear();
                     goto mainmenu;  //takes us back to the main menu
                 }
 
             }
             else if (selection == 2)
             {
-                Console.WriteLine("\n\nReserve Account Options:");
+                Console.Clear();
+                Console.WriteLine("Reserve Account Options:");
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
@@ -155,16 +159,19 @@ namespace BankAccountProject
                 }
                 else if (resMenu == 3)
                 {
+                    Console.Clear();
                     Console.WriteLine(check1.FirstName + ", your current reserve balance is $" + reserve1.ReserveBalance + ".");
                 }
                 else
                 {
+                    Console.Clear();
                     goto mainmenu;
                 }
             }
             else if (selection == 3)
             {
-                Console.WriteLine("\n\nSavings Account Options:");
+                Console.Clear();
+                Console.WriteLine("Savings Account Options:");
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
@@ -181,15 +188,18 @@ namespace BankAccountProject
                 }
                 else if (savMenu == 3)
                 {
+                    Console.Clear();
                     Console.WriteLine(check1.FirstName + ", your current savings balance is $" + savings1.SavingsBalance + ".");
                 }
                 else
                 {
+                    Console.Clear();
                     goto mainmenu;
                 }
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Thank you for banking with FNB of Andy. Have a great day!");
                 StreamWriter bankLogin = new StreamWriter("..\\..\\BankLogin.txt");  //this will write or overwrite the txt 
                 using (bankLogin)                                                    //that will be used to read when console is

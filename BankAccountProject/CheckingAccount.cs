@@ -59,9 +59,11 @@ namespace BankAccountProject
 
         public override void Deposit()      //inherited override for deposit
         {
+            Console.Clear();    //this makes the console more readable
             Console.WriteLine("How much would you like to deposit into your checking?");
             this.checkDeposit = double.Parse(Console.ReadLine());
             this.checkBalance += this.checkDeposit;
+            Console.Clear();
             Console.WriteLine("Thank you for your deposit of $" + this.checkDeposit + " into account number " + this.checkingAccountNumber + " at " + DateTime.Now);
             Console.WriteLine("Your new checking account balance is $" + this.checkBalance + ".");
             StreamWriter transactions1 = new StreamWriter("Checking.txt", true);
@@ -75,9 +77,11 @@ namespace BankAccountProject
 
         public override void Withdraw()     //inherited override for withdraw
         {
+            Console.Clear();
             Console.WriteLine("How much would you like to withdraw from your checking?");
             this.checkWithdrawal = double.Parse(Console.ReadLine());
             this.checkBalance -= this.checkWithdrawal;
+            Console.Clear();
             Console.WriteLine("You have withdrawn $" + this.checkWithdrawal + " from account number " + this.checkingAccountNumber + " at " + DateTime.Now);
             Console.WriteLine("Your new checking account balance is $" + this.checkBalance + ".");
             StreamWriter transactions1 = new StreamWriter("Checking.txt", true);
