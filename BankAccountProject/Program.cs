@@ -22,8 +22,7 @@ namespace BankAccountProject
 
             if (existingCustomer.ToUpper() == "Y"  || existingCustomer.ToUpper() == "YES")
             {
-                
-                    
+                    Console.Clear();
                     StreamReader retrieveSave = new StreamReader("..\\..\\BankLogin.txt");   //another input of "enter" to continue.
                     int numberOfLines = 12;
                     string[] lineArray = new string[numberOfLines]; //taking BankLogin.txt and turning lines into an array to read them
@@ -36,7 +35,7 @@ namespace BankAccountProject
                     account1.UserName = (lineArray[3]);
                     account1.PassWord = (lineArray[4]);
                     account1.ClientNumber = int.Parse(lineArray[5]);    //all lines read as a string, so Parse will get them into an int or double
-                check1.CheckBalance = double.Parse(lineArray[6]);
+                    check1.CheckBalance = double.Parse(lineArray[6]);
                     check1.CheckingAccountNumber = int.Parse(lineArray[7]);
                     reserve1.ReserveBalance = double.Parse(lineArray[8]);
                     reserve1.ReserveAccountNumber = int.Parse(lineArray[9]);
@@ -71,6 +70,7 @@ namespace BankAccountProject
 
             else                   //this else is for those who don't have a login and password
             {    //creating a new profile
+                Console.Clear();  
                 Console.WriteLine("Let\'s set you up a new account!\nWhat is your first name?");
                 account1.FirstName = Console.ReadLine();
                 check1.FirstName = account1.FirstName;
@@ -91,6 +91,7 @@ namespace BankAccountProject
                 savings1.ClientNumber = account1.ClientNumber;
                 Console.WriteLine(account1.FirstName + ", your client ID number is " + account1.ClientNumber);
                 Console.WriteLine("Here at FNB of Andy, we require all customers to open 3 accounts\nA Checking Account, a Reserve Account, and a Savings Account.");
+                System.Threading.Thread.Sleep(5000);  //this gives some time for the above lines to be read. Next method to be called clears all lines
                 check1.GenerateCheckingAccount();   //these next 6 lines call to the inherited methods for initial deposits and account numbers
                 check1.Deposit();
                 reserve1.GenerateReserveAccount();
@@ -106,17 +107,17 @@ namespace BankAccountProject
             Console.WriteLine("Select 1 to vew Checking Account.");
             Console.WriteLine("Select 2 to view Reserve Account.");
             Console.WriteLine("Select 3 to view Savings Account.");
-            Console.WriteLine("Select 4 or any key to Exit and recieve your receipt.");
+            Console.WriteLine("Select 4 to Exit and recieve your receipt.");
             int selection = int.Parse(Console.ReadLine());
 
-            if (selection == 1)  //if/else if for the 4 options
+            if (selection == 1)  //if/else if for the 4 options. Selection 1 brings us to checking options
             {
                 Console.Clear();    //console.clear is used to make console more readable
                 Console.WriteLine("Checking Account Options:"); 
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
-                Console.WriteLine("Select 4 or any key to return to the main menu.");
+                Console.WriteLine("Select 4 to return to the main menu.");
                 int checkMenu = int.Parse(Console.ReadLine());
 
                 if (checkMenu == 1)
@@ -139,14 +140,14 @@ namespace BankAccountProject
                 }
 
             }
-            else if (selection == 2)
+            else if (selection == 2)    //selection 2 brings us to reserve account options
             {
                 Console.Clear();
                 Console.WriteLine("Reserve Account Options:");
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
-                Console.WriteLine("Select 4 or any key to return to the main menu.");
+                Console.WriteLine("Select 4 to return to the main menu.");
                 int resMenu = int.Parse(Console.ReadLine());
 
                 if (resMenu == 1)   //nested if/else if to call upon particular inherited method
@@ -168,14 +169,14 @@ namespace BankAccountProject
                     goto mainmenu;
                 }
             }
-            else if (selection == 3)
+            else if (selection == 3)    //selection 3 brings us to savings account options
             {
                 Console.Clear();
                 Console.WriteLine("Savings Account Options:");
                 Console.WriteLine("Select 1 to make a deposit.");
                 Console.WriteLine("Select 2 to make a withdrawal.");
                 Console.WriteLine("Select 3 to check balance.");
-                Console.WriteLine("Select 4 or any key to return to the main menu.");
+                Console.WriteLine("Select 4 to return to the main menu.");
                 int savMenu = int.Parse(Console.ReadLine());
 
                 if (savMenu == 1)
@@ -219,7 +220,6 @@ namespace BankAccountProject
 
                     Environment.Exit(0);
             }
-
             goto mainmenu;  //if user did not exit, this will send back to main menu
         }
     }
