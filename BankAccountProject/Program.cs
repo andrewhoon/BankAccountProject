@@ -91,7 +91,7 @@ namespace BankAccountProject
                 savings1.ClientNumber = account1.ClientNumber;
                 Console.WriteLine(account1.FirstName + ", your client ID number is " + account1.ClientNumber);
                 Console.WriteLine("Here at FNB of Andy, we require all customers to open 3 accounts\nA Checking Account, a Reserve Account, and a Savings Account.");
-                System.Threading.Thread.Sleep(5000);  //this gives some time for the above lines to be read. Next method to be called clears all lines
+                System.Threading.Thread.Sleep(5500);  //this gives some time for the above lines to be read. Next method to be called clears all lines
                 check1.GenerateCheckingAccount();   //these next 6 lines call to the inherited methods for initial deposits and account numbers
                 check1.Deposit();
                 reserve1.GenerateReserveAccount();
@@ -104,10 +104,10 @@ namespace BankAccountProject
             mainmenu:
             Console.WriteLine("\n" + account1.FirstName + ", please select the account you wish to view or exit.");
             Console.WriteLine("You may make a deposit, withdrawal, or view account balance in\nthe account you select.");
-            Console.WriteLine("Select 1 to vew Checking Account.");
+            Console.WriteLine("Select 1 to view Checking Account.");
             Console.WriteLine("Select 2 to view Reserve Account.");
             Console.WriteLine("Select 3 to view Savings Account.");
-            Console.WriteLine("Select 4 to Exit and recieve your receipt.");
+            Console.WriteLine("Select 4 to Exit and receive your receipt.");
             int selection = int.Parse(Console.ReadLine());
 
             if (selection == 1)  //if/else if for the 4 options. Selection 1 brings us to checking options
